@@ -1,0 +1,21 @@
+{
+  "name": "trussletechtest",
+  "author": "NickDrew <nicholasadrew@hotmail.com>",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo No tests in root project. Please see readme.",
+    "quickstart": "npm run setup && npm run start:dev",
+    "setup": "npm run setup:local && concurrently 'npm run setup:web' 'npm run setup:api' --names 'web,api'",
+    "setup:local": "npm install",
+    "setup:web": "npm run setup --prefix ./web",
+    "setup:api": "npm run setup --prefix ./api",
+    "start": "echo No non-dev start in root project. Please see readme.",
+    "start:dev": "concurrently 'npm run start:web:dev' 'npm run start:api:dev' --kill-others --names 'web,api'",
+    "start:web:dev": "npm run start:dev --prefix ./web",
+    "start:api:dev": "npm run start:dev --prefix ./api"
+  },
+  "dependencies": {
+    "concurrently": "^5.0.0"
+  },
+  "devDependencies": {}
+}

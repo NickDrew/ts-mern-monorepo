@@ -1,0 +1,49 @@
+{
+    "name": "express-ts-boilerplate",
+    "version": "1.0.0",
+    "author": "NickDrew <nicholasadrew@hotmail.com>",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "start": "NODE_ENV=production npm run serve",
+        "start:dev": "NODE_ENV=development npm run serve:dev",
+        "build": "tsc",
+        "serve": "pm2 start dist/server.js",
+        "serve:debug": "nodemon --exec node  --inspect -r ts-node/register  src/server.ts",
+        "serve:dev": "nodemon --exec ts-node src/server.ts",
+        "killdebug": "kill `lsof -t -i:9229`",
+        "lint": "tsc --noEmit && eslint \"src/**/*.{js,ts}\" --quiet --fix",
+        "setup": "npm install",
+        "test": "mocha --require ts-node/register src/**/*.test.ts --grep @unit",
+        "test:all": "mocha --require ts-node/register src/**/*.test.ts"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.2.3",
+        "@types/dotenv": "^6.1.1",
+        "@types/express": "^4.17.0",
+        "@types/mocha": "^5.2.7",
+        "@types/sinon": "^7.5.0",
+        "@typescript-eslint/eslint-plugin": "^1.13.0",
+        "@typescript-eslint/parser": "^1.13.0",
+        "chai": "^4.2.0",
+        "chai-http": "^4.3.0",
+        "eslint": "^5.0.0",
+        "eslint-config-prettier": "^6.0.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "mocha": "^6.2.2",
+        "nodemon": "^1.19.1",
+        "prettier": "^1.18.2",
+        "sinon": "^7.5.0",
+        "ts-loader": "^6.0.4",
+        "ts-node": "^8.3.0",
+        "typescript": "^3.5.2"
+    },
+    "dependencies": {
+        "@types/mock-req-res": "^1.1.0",
+        "body-parser": "^1.19.0",
+        "dotenv": "^8.0.0",
+        "express": "^4.17.1",
+        "express-validator": "^6.1.1",
+        "mock-req-res": "^1.1.2"
+    }
+}
